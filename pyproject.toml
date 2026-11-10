@@ -1,0 +1,48 @@
+[project]
+name = "twidr"
+version = "0.4"
+description = "the Twitter–Wayback Machine Image Download Robot"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE*"]
+requires-python = ">=3.13"
+dependencies = [
+    "argcomplete>=3.7.2",
+    "requests>=2.34.2",
+    "tqdm>=4.70.1",
+]
+
+[project.urls]
+Repository = "https://github.com/solanto/twidr"
+"Bug Tracker" = "https://github.com/solanto/twidr/issues"
+Documentation = "https://github.com/solanto/twidr#readme"
+
+[project.scripts]
+twidr = "twidr.main:main"
+
+[build-system]
+requires = ["uv_build<0.14"]
+build-backend = "uv_build"
+
+[tool.basedpyright]
+typeCheckingMode = "standard"
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.40.2",
+    "black>=26.10.1",
+    "isort>=9.0.2",
+]
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true
